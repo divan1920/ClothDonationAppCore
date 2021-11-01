@@ -1,8 +1,10 @@
 ﻿using ClothDonationApp.Models;
+using ClothDonationApp.Models.City;
 using ClothDonationApp.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,45 +14,64 @@ namespace ClothDonationApp.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly SignInManager<IdentityUser> signInManager;
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly SignInManager<ApplicationUser> signInManager;
+        private readonly ICityRepo cityRepo;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+
+        
+
+        public AccountController(ICityRepo cityRepo, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.cityRepo = cityRepo;
         }
 
         [HttpGet]
         public IActionResult Register()
         {
-            return View();
+            IEnumerable<City> cities = cityRepo.GetAllCities();
+
+            var viewModel = new RegisterViewModel
+            {
+                CityList = new SelectList(cities, "Id", "CityName")
+            };
+            return View(viewModel);
         }
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            if(ModelState.IsValid)
+            IEnumerable<City> cities = cityRepo.GetAllCities();
+
+            var viewModel = new RegisterViewModel
             {
+                CityList = new SelectList(cities, "Id", "CityName")
+            };
+            if (ModelState.IsValid)
+            {
+                int role = (int)model.Role;
                 var user = new ApplicationUser
                 {
                     UserName = model.Username,
                     Email = model.Email,
-                    City = model.City,
                     MobileNumber = model.MobileNumber,
+                    CityId = model.CityId,
                     Address = model.Address,
+                    Role = role
                 };
                 var result = await userManager.CreateAsync(user, model.Password);
                 if(result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("index", "City");
                 }
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-            return View(model);
+            return View(viewModel);
         }
         
         [HttpPost]
@@ -60,6 +81,7 @@ namespace ClothDonationApp.Controllers
             return RedirectToAction("index", "home");
         }
         [HttpGet]
+        
         public IActionResult Login()
         {
             return View();
@@ -78,5 +100,6 @@ namespace ClothDonationApp.Controllers
             }
             return View(model);
         }
+        
     }
 }

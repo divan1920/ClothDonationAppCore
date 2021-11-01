@@ -29,9 +29,11 @@ namespace ClothDonationApp
         public void ConfigureServices(IServiceCollection services)
         {
             string path = Directory.GetCurrentDirectory();
-            services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DbConnection")));//.Replace("[DataDirectory]", path)));
+            services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DbConnection").Replace("[DataDirectory]", path)));
             services.AddIdentity<ApplicationUser,IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
-            //services.AddScoped<ICityRepo>();
+            services.AddScoped<ICityRepo, SQLCityRepo>();
+            services.AddTransient<SignInManager<ApplicationUser>>();
+            services.AddTransient<UserManager<ApplicationUser>>();
             services.AddControllersWithViews();
         }
 
@@ -44,7 +46,7 @@ namespace ClothDonationApp
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -57,9 +59,7 @@ namespace ClothDonationApp
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }

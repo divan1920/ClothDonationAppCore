@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 namespace ClothDonationApp.Models
 {
     public class ApplicationUser : IdentityUser
-    {
-        public string City { get; set; }
+    { 
         public string Address { get; set; }
         public string MobileNumber { get; set; }
+        public int Role { get; set; }
+        public int CityId { get; set; }
+        public City.City City { get; set; }
     }
+    
 }

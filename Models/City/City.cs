@@ -10,7 +10,7 @@ namespace ClothDonationApp.Models.City
     {
         public int Id { get; set; }
         [Required]
-        public string city { get; set; }
-
+        public string CityName { get; set; }
+        public ICollection<ApplicationUser> Users { get; set; }
     }
 }

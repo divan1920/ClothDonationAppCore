@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ClothDonationApp.Models
 {
@@ -17,5 +13,7 @@ namespace ClothDonationApp.Models
         {
             base.OnModelCreating(builder);
         }
+        public DbSet<City.City> Cities { get; set; }
+        public DbSet<Role.Role> roles { get; set; }
     }
 }

@@ -5,18 +5,40 @@ using System.Threading.Tasks;
 
 namespace ClothDonationApp.Models.City
 {
-    public class SQLCityRepo
-    {/*
+    public class SQLCityRepo : ICityRepo
+    {
         private readonly AppDbContext context;
-        public City GetCity(int id)
-        {
-            return new City();
-        }
-        public IEnumerable<City> GetCities()
-        {
-            IEnumerable<City> cities;
 
-            return cities;
-        }*/
+        public SQLCityRepo(AppDbContext context)
+        {
+            this.context = context;
+        }
+        
+        City ICityRepo.GetCity(int Id)
+        {
+            return context.Cities.Find(Id);
+        }
+        IEnumerable<City> ICityRepo.GetAllCities()
+        {
+            return context.Cities;
+        }
+
+        City ICityRepo.Add(City city)
+        {
+            context.Cities.Add(city);
+            context.SaveChanges();
+            return city;
+        }
+
+        City ICityRepo.Delete(int Id)
+        {
+            City city = context.Cities.Find(Id);
+            if (city != null)
+            {
+                context.Cities.Remove(city);
+                context.SaveChanges();
+            }
+            return city;
+        }
     }
 }

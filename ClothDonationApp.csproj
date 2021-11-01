@@ -13,6 +13,16 @@
     <Compile Remove="Migrations\20211031114543_AddCity_UpdateUser.Designer.cs" />
     <Compile Remove="Migrations\20211031115949_First.cs" />
     <Compile Remove="Migrations\20211031115949_First.Designer.cs" />
+    <Compile Remove="Migrations\20211101045655_application_user.cs" />
+    <Compile Remove="Migrations\20211101045655_application_user.Designer.cs" />
+    <Compile Remove="Migrations\20211101082222_city.cs" />
+    <Compile Remove="Migrations\20211101082222_city.Designer.cs" />
+    <Compile Remove="Migrations\20211101144504_demo.cs" />
+    <Compile Remove="Migrations\20211101144504_demo.Designer.cs" />
+    <Compile Remove="Migrations\20211101150727_Roles.cs" />
+    <Compile Remove="Migrations\20211101150727_Roles.Designer.cs" />
+    <Compile Remove="Migrations\20211101151412_Role.cs" />
+    <Compile Remove="Migrations\20211101151412_Role.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,10 +33,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="System.Collections" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
 
 </Project>
