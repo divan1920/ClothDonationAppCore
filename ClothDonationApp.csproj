@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20211031075007_AddIdentity.cs" />
+    <Compile Remove="Migrations\20211031075007_AddIdentity.Designer.cs" />
+    <Compile Remove="Migrations\20211031113210_AddCity_UpdateUser.cs" />
+    <Compile Remove="Migrations\20211031113210_AddCity_UpdateUser.Designer.cs" />
+    <Compile Remove="Migrations\20211031114543_AddCity_UpdateUser.cs" />
+    <Compile Remove="Migrations\20211031114543_AddCity_UpdateUser.Designer.cs" />
+    <Compile Remove="Migrations\20211031115949_First.cs" />
+    <Compile Remove="Migrations\20211031115949_First.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.17">
@@ -15,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

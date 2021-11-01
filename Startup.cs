@@ -1,4 +1,5 @@
 using ClothDonationApp.Models;
+using ClothDonationApp.Models.City;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,8 +29,9 @@ namespace ClothDonationApp
         public void ConfigureServices(IServiceCollection services)
         {
             string path = Directory.GetCurrentDirectory();
-            services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DbConnection").Replace("[DataDirectory]", path)));
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DbConnection")));//.Replace("[DataDirectory]", path)));
+            services.AddIdentity<ApplicationUser,IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            //services.AddScoped<ICityRepo>();
             services.AddControllersWithViews();
         }
 

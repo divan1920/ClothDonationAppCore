@@ -31,10 +31,13 @@ namespace ClothDonationApp.Controllers
         {
             if(ModelState.IsValid)
             {
-                var user = new IdentityUser
+                var user = new ApplicationUser
                 {
                     UserName = model.Username,
-                    Email = model.Email
+                    Email = model.Email,
+                    City = model.City,
+                    MobileNumber = model.MobileNumber,
+                    Address = model.Address,
                 };
                 var result = await userManager.CreateAsync(user, model.Password);
                 if(result.Succeeded)
