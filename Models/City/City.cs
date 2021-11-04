@@ -12,5 +12,6 @@ namespace ClothDonationApp.Models.City
         [Required]
         public string CityName { get; set; }
         public ICollection<ApplicationUser> Users { get; set; }
+        public ICollection<Donation.Donation> Donations { get; set; }
     }
 }

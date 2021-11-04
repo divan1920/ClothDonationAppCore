@@ -13,6 +13,7 @@ namespace ClothDonationApp.Models
         public int Role { get; set; }
         public int CityId { get; set; }
         public City.City City { get; set; }
+        public ICollection<Donation.Donation> Donations { get; set; }
     }
     
 }

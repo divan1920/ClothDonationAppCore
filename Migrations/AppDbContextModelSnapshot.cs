@@ -114,7 +114,49 @@ namespace ClothDonationApp.Migrations
                     b.ToTable("Cities");
                 });
 
-            modelBuilder.Entity("ClothDonationApp.Models.Role", b =>
+            modelBuilder.Entity("ClothDonationApp.Models.Donation.Donation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DonarName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MobileNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Size")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("CityId");
+
+                    b.ToTable("Donations");
+                });
+
+            modelBuilder.Entity("ClothDonationApp.Models.Role.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -264,6 +306,19 @@ namespace ClothDonationApp.Migrations
                 {
                     b.HasOne("ClothDonationApp.Models.City.City", "City")
                         .WithMany("Users")
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ClothDonationApp.Models.Donation.Donation", b =>
+                {
+                    b.HasOne("ClothDonationApp.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("Donations")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("ClothDonationApp.Models.City.City", "City")
+                        .WithMany("Donations")
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

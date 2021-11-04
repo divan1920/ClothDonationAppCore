@@ -23,6 +23,8 @@
     <Compile Remove="Migrations\20211101150727_Roles.Designer.cs" />
     <Compile Remove="Migrations\20211101151412_Role.cs" />
     <Compile Remove="Migrations\20211101151412_Role.Designer.cs" />
+    <Compile Remove="Migrations\20211103055003_Donation.cs" />
+    <Compile Remove="Migrations\20211103055003_Donation.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

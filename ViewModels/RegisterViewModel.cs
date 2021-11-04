@@ -38,9 +38,5 @@ namespace ClothDonationApp.ViewModels
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
     }
-    public enum Role : int
-    {
-        Donar=0,
-        Volunteer=1
-    }
+    
 }

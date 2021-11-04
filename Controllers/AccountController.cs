@@ -17,10 +17,6 @@ namespace ClothDonationApp.Controllers
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly ICityRepo cityRepo;
-
-
-        
-
         public AccountController(ICityRepo cityRepo, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             this.userManager = userManager;
@@ -64,7 +60,7 @@ namespace ClothDonationApp.Controllers
                 if(result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("index", "City");
+                    return RedirectToAction("Index","Home");
                 }
                 foreach (var error in result.Errors)
                 {

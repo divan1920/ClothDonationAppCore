@@ -1,5 +1,6 @@
 using ClothDonationApp.Models;
 using ClothDonationApp.Models.City;
+using ClothDonationApp.Models.Donation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,7 @@ namespace ClothDonationApp
             services.AddScoped<ICityRepo, SQLCityRepo>();
             services.AddTransient<SignInManager<ApplicationUser>>();
             services.AddTransient<UserManager<ApplicationUser>>();
+            services.AddScoped<IDonationRepo, SQLDonationRepo>();
             services.AddControllersWithViews();
         }
 

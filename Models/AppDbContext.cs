@@ -15,5 +15,6 @@ namespace ClothDonationApp.Models
         }
         public DbSet<City.City> Cities { get; set; }
         public DbSet<Role.Role> roles { get; set; }
+        public DbSet<Donation.Donation> Donations {get; set; }
     }
 }
