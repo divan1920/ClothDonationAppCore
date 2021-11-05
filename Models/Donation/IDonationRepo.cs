@@ -14,6 +14,6 @@ namespace ClothDonationApp.Models.Donation
         Donation Update(Donation donationChanges);
         IEnumerable<Donation> GetAllByCity(int cityId);
         IEnumerable<City.City> GetCities();
-
+        int GetRole(string Username);
     }
 }

@@ -33,7 +33,8 @@ namespace ClothDonationApp.Models.Donation
     {
         Accepted,
         Rejected,
-        Pending
+        Pending,
+        Canceled
     }
     public enum SizeEnum
     {

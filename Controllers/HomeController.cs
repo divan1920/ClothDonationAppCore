@@ -1,4 +1,6 @@
 ﻿using ClothDonationApp.Models;
+using ClothDonationApp.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ClothDonationApp.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly SignInManager<ApplicationUser> signInManager;
@@ -33,21 +36,37 @@ namespace ClothDonationApp.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult DonarHome()
+        public async Task<IActionResult> DonarHome()
         {
-            return View();
+            var user = await userManager.GetUserAsync(User);
+            if(user.Role == 1)
+                return View();
+            var Model = new LoginViewModel();
+            ModelState.AddModelError(string.Empty, "You are not a Donar");
+            return View("~/Views/Account/Login.cshtml", Model);
         }
         [HttpGet]
-        public IActionResult AdminHome()
+        public async Task<IActionResult> AdminHome()
         {
-            return View();
+            var user = await userManager.GetUserAsync(User);
+            if (user.Role == 3)
+                return View();
+            var Model = new LoginViewModel();
+            ModelState.AddModelError(string.Empty, "You are not a Donar");
+            return View("~/Views/Account/Login.cshtml", Model);
         }
         [HttpGet]
-        public IActionResult VolunteerHome()
+        public async Task<IActionResult> VolunteerHome()
         {
-            return View();
+            var user = await userManager.GetUserAsync(User);
+            if (user.Role == 2)
+                return View();
+            var Model = new LoginViewModel();
+            ModelState.AddModelError(string.Empty, "You are not a Donar");
+            return View("~/Views/Account/Login.cshtml", Model);
         }
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult About()
         {
             return View();

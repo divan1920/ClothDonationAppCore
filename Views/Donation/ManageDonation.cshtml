@@ -31,6 +31,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.ApplicationUser)
             </th>
+            <th>
+                Actions
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -59,9 +62,12 @@
                 @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                @if (item.Status.Equals("Pending"))
+                {
+                    <a asp-action="Reject" asp-route-id="@item.Id" class="btn btn-danger">Reject</a>
+                    <a asp-action="Accept" asp-route-id="@item.Id"class="btn btn-light">Accept</a>
+                }
             </td>
         </tr>
 }

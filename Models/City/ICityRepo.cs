@@ -11,5 +11,6 @@ namespace ClothDonationApp.Models.City
         IEnumerable<City> GetAllCities();
         City Delete(int Id);
         City Add(City city);
+        int GetRole(string Username);
     }
 }

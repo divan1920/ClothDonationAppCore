@@ -1,5 +1,7 @@
 ﻿using ClothDonationApp.Models;
 using ClothDonationApp.Models.City;
+using ClothDonationApp.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ClothDonationApp.Controllers
 {
+    [Authorize]
     public class CityController : Controller
     {
         private readonly ICityRepo cityRepo;
@@ -19,33 +22,65 @@ namespace ClothDonationApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = cityRepo.GetAllCities();
-            return View(model);
+            bool IsAdmin = (cityRepo.GetRole(User.Identity.Name) == 3);
+            if (IsAdmin)
+            {
+                var model = cityRepo.GetAllCities();
+                return View(model);
+            }
+            var Model = new LoginViewModel();
+            ModelState.AddModelError(string.Empty, "You are not an Admin");
+            return View("~/Views/Account/Login.cshtml", Model);
         }
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            bool IsAdmin = (cityRepo.GetRole(User.Identity.Name) == 3);
+
+            if (IsAdmin)
+            {
+                return View();
+            }
+            var Model = new LoginViewModel();
+            ModelState.AddModelError(string.Empty, "You are not an Admin");
+            return View("~/Views/Account/Login.cshtml", Model);
         }
         [HttpPost]
         public IActionResult Create(City city)
         {
-            if(ModelState.IsValid)
+            bool IsAdmin = (cityRepo.GetRole(User.Identity.Name) == 3);
+
+            if (IsAdmin)
             {
-                City dCity = cityRepo.Add(city);
-                return RedirectToAction("Index", "City");
+                if (ModelState.IsValid)
+                {
+                    City dCity = cityRepo.Add(city);
+                    return RedirectToAction("Index", "City");
+                }
+                return View();
             }
-            return View();
+            var Model = new LoginViewModel();
+            ModelState.AddModelError(string.Empty, "You are not an Admin");
+            return View("~/Views/Account/Login.cshtml", Model);
+            
         }
         [HttpGet]
         public IActionResult Delete(int Id)
         {
-            City city = cityRepo.GetCity(Id);
-            if(city == null)
+            bool IsAdmin = (cityRepo.GetRole(User.Identity.Name) == 3);
+
+            if (IsAdmin)
             {
-                return NotFound();
+                City city = cityRepo.GetCity(Id);
+                if (city == null)
+                {
+                    return NotFound();
+                }
+                return View(city);
             }
-            return View(city);
+            var Model = new LoginViewModel();
+            ModelState.AddModelError(string.Empty, "You are not an Admin");
+            return View("~/Views/Account/Login.cshtml", Model);
         }
         [HttpPost,ActionName("Delete")]
         public IActionResult ConfirmDelete(int Id)

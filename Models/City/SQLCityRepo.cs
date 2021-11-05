@@ -40,5 +40,15 @@ namespace ClothDonationApp.Models.City
             }
             return city;
         }
+        int ICityRepo.GetRole(string Username)
+        {
+            ApplicationUser user = context.Users.FirstOrDefault<ApplicationUser>(m=>m.UserName == Username);
+            int role=-1;
+            if(user != null)
+            {
+                role = user.Role;
+            }
+            return role;
+        }
     }
 }

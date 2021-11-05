@@ -6,9 +6,7 @@
 
 <h1>Cities</h1>
 
-<p>
-    <a asp-action="Create">Add City</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -25,7 +23,7 @@
                 @Html.DisplayFor(modelItem => item.CityName)
             </td>
             <td> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
             </td>
         </tr>
 }

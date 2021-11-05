@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,6 @@ namespace ClothDonationApp.Models.Donation
     public class SQLDonationRepo : IDonationRepo
     {
         private readonly AppDbContext context;
-
         public SQLDonationRepo(AppDbContext context)
         {
             this.context = context;
@@ -57,6 +57,16 @@ namespace ClothDonationApp.Models.Donation
         public IEnumerable<City.City> GetCities()
         {
             return context.Cities;
+        }
+        int IDonationRepo.GetRole(string Username)
+        {
+            ApplicationUser user = context.Users.FirstOrDefault<ApplicationUser>(m => m.UserName == Username);
+            int role = -1;
+            if (user != null)
+            {
+                role = user.Role;
+            }
+            return role;
         }
     }
 }

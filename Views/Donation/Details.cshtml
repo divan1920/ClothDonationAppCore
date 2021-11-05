@@ -4,7 +4,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>View</h1>
+<h1>Details</h1>
 
 <div>
     <h4>Donation</h4>
@@ -47,13 +47,20 @@
             @Html.DisplayFor(model => model.City.CityName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ApplicationUserId)
+            @Html.DisplayNameFor(model => model.ApplicationUser)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ApplicationUserId)
+            @Html.DisplayFor(model => model.ApplicationUser.UserName)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Index">Back to List</a>
+    @if (User.Identity.Name != Model.ApplicationUser.UserName)
+    {
+        <a asp-action="ManageDonation" class="btn btn-dark">Back</a>
+    }
+    else
+    {
+        <a asp-action="Index" class="btn btn-dark">Back</a>
+    }
 </div>
