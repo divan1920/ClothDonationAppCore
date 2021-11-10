@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20211031075007_AddIdentity.cs" />
+    <Compile Remove="Migrations\20211031075007_AddIdentity.Designer.cs" />
+    <Compile Remove="Migrations\20211031113210_AddCity_UpdateUser.cs" />
+    <Compile Remove="Migrations\20211031113210_AddCity_UpdateUser.Designer.cs" />
+    <Compile Remove="Migrations\20211031114543_AddCity_UpdateUser.cs" />
+    <Compile Remove="Migrations\20211031114543_AddCity_UpdateUser.Designer.cs" />
+    <Compile Remove="Migrations\20211031115949_First.cs" />
+    <Compile Remove="Migrations\20211031115949_First.Designer.cs" />
+    <Compile Remove="Migrations\20211101045655_application_user.cs" />
+    <Compile Remove="Migrations\20211101045655_application_user.Designer.cs" />
+    <Compile Remove="Migrations\20211101082222_city.cs" />
+    <Compile Remove="Migrations\20211101082222_city.Designer.cs" />
+    <Compile Remove="Migrations\20211101144504_demo.cs" />
+    <Compile Remove="Migrations\20211101144504_demo.Designer.cs" />
+    <Compile Remove="Migrations\20211101150727_Roles.cs" />
+    <Compile Remove="Migrations\20211101150727_Roles.Designer.cs" />
+    <Compile Remove="Migrations\20211101151412_Role.cs" />
+    <Compile Remove="Migrations\20211101151412_Role.Designer.cs" />
+    <Compile Remove="Migrations\20211103055003_Donation.cs" />
+    <Compile Remove="Migrations\20211103055003_Donation.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.17">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+
+</Project>

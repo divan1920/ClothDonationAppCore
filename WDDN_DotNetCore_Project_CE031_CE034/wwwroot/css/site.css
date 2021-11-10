@@ -1,0 +1,329 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+
+/*------------- Additional Styles --------------*/
+
+.active {
+    color: coral;
+    background-color: grey;
+    border-radius: 5px;
+}
+
+.navbar-brand {
+    font-variant: small-caps;
+}
+
+    .navbar-brand:hover {
+        transition: 0.5s;
+        border-radius: 10%;
+        background-color: grey;
+        color: black;
+    }
+
+.nav-link:hover {
+    transition: 0.7s;
+    border-radius: 10px;
+    background-color: coral;
+    color: black;
+}
+
+.btn-coral {
+    transition: 0.5s;
+    background-color: coral;
+    border-radius: 10px;
+    color: black;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+    .btn-coral:hover {
+        transition: 0.5s;
+        color: white;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+
+.side-Image {
+    padding-top: 20px;
+    width: 95%;
+    height: 90%;
+}
+
+.login-footer {
+    margin-top: 100px;
+}
+
+/*------- Hero section ------*/
+
+.jumbotron {
+    color: white;
+    /*    background-image: url("../Images/PoorChild.jpg");
+    opacity:0.7;*/
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("../Images/PoorChild.jpg");
+    opacity: 0.9;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 91vh;
+}
+
+.Hero-Heading {
+    font-family: 'Comic Sans MS';
+    font-size: 57px;
+    margin-top: 23vh;
+    color: orangered;
+}
+
+.Hero-Heading-1 {
+    color: white;
+    font-size: 24px;
+    font-family: cursive;
+    margin-bottom: 8vh;
+}
+
+#BookPickUp {
+    color: white;
+    transition: 0.7s;
+    border: 1px solid #f15622;
+    border-radius: 26px;
+    background-color: #f15622;
+    font-size: 18px;
+}
+
+    #BookPickUp:hover {
+        transition: 0.7s;
+        background-color: white;
+        border-radius: 26px;
+        color: black;
+        border: 1px solid black;
+    }
+
+/*------- Links -------*/
+
+.Links-Heading {
+    color: #222222;
+    font-variant-caps: small-caps;
+}
+
+    .Links-Heading hr {
+        width: 150px;
+        color: coral;
+        border: 2px solid coral;
+        border-radius: 3px;
+        align-content: center;
+        margin: auto;
+    }
+
+.Links-Cards {
+    margin-left: 100px;
+}
+/*.btn-primary {
+    transition: 0.2s;
+    background-color: coral;
+    border: 0;
+}
+
+    .btn-primary:hover {
+        color: black;
+        border-radius: 12 px;
+        font-size: 15px;
+        transition: 0.2s;
+        background-color: lightcoral;
+    }
+*/
+.card {
+    transition: 0.1s;
+    border-radius: 10px;
+}
+
+    .card:hover {
+        transition: 0.3s;
+        transform: scale(1);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+/*.UsersGridViewButton {
+    border: thin solid #B6E427;
+    font-family: 'Arial Unicode MS';
+    background-color: #C1F984;
+    color: #FFFFFF;
+    font-style: normal;
+    text-align: center;
+    padding-right: 10px;
+    padding-left: 10px;
+}*/
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+th {
+    background-color: #7F00FF;
+    color: white;
+}
+
+.ShowDeleteButton {
+    background-color: coral;
+}
+
+
+blockquote {
+    margin: 0;
+}
+
+    blockquote p {
+        padding: 15px;
+        background: #eee;
+        border-radius: 5px;
+    }
+
+        blockquote p::before {
+            content: '\201C';
+        }
+
+        blockquote p::after {
+            content: '\201D';
+        }
+
+
+/*------- Contact us --------------*/
+
+.contact-form {
+    background: #fff;
+    margin-top: 10px;
+    margin-bottom: 5%;
+    width: 70%;
+}
+
+    .contact-form .form-control {
+        border-radius: 1rem;
+    }
+
+.contact-image {
+    text-align: center;
+}
+
+    .contact-image img {
+        border-radius: 6rem;
+        width: 15%;
+        margin-top: -10%;
+    }
+
+.contact-form form {
+    padding: 14%;
+}
+
+    .contact-form form .row {
+        margin-bottom: -7%;
+    }
+
+.contact-form h3 {
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: #0062cc;
+}
+
+.contact-form .btnContact {
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #dc3545;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btnContactSubmit {
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #0062cc;
+    border: none;
+    cursor: pointer;
+}

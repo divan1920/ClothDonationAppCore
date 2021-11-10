@@ -1,0 +1,31 @@
+﻿@model ClothDonationApp.Models.City.City
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@*<h1>View</h1>
+
+    <h4>City</h4>*@
+<h2 class="py-3  text-sm-center"><i>Add City</i></h2>
+<hr />
+<div class="row">
+    <div class="container-fluid col-md-6 px-5 ">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CityName" class="control-label"></label>
+                <input asp-for="CityName" class="form-control" />
+                <span asp-validation-for="CityName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+        <div>
+            <a asp-action="AdminHome" asp-controller="Home" class="btn btn-dark">Back</a>
+        </div>
+    </div>
+</div>
+
+

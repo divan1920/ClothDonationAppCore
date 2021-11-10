@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ClothDonationApp.Models.City.City>
+
+@{
+    ViewData["Title"] = "Cities";
+}
+
+<div class="container text-center">
+    <h1 class="text-secondary mt-5"><i>List of Cities</i></h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CityName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CityName)
+                    </td>
+                    <td>
+                        |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,81 @@
+﻿@*@{
+        ViewData["Title"] = "VolunteerHome";
+    }
+
+
+    <h1>VolunteerHome</h1>
+
+    <a class="btn btn-coral" asp-action="ManageDonation" asp-controller="Donation">Manage Donation</a>*@
+
+
+@{
+    ViewData["Title"] = "VolunteerHome";
+}
+
+
+@*<h1>VolunteerHome</h1>*@
+
+<div class="row">
+    <div class="col-md-6">
+        <h2 class="mt-5 pt-3 pl-4 text-secondary text-sm-center"><i>Hey , Volunteer</i></h2>
+        <p class="pl-5 pt-3">
+            <figure class="pl-5 ml-5" style="background-color: #eee; padding: 15px; border-radius: 5px">
+                <blockquote>
+                    <p>“The best way to find yourself is to lose yourself in the service of others.” </p>
+                </blockquote>
+                <figcaption style="margin-left: 400px">— Gandhi </figcaption>
+            </figure>
+            <br />
+            <figure class="pl-5 ml-5" style="background-color: #eee; padding: 15px; border-radius: 5px">
+                <blockquote>
+                    <p>“Life’s most persistent and urgent question is, what are you doing for others?”</p>
+                </blockquote>
+                <figcaption style="margin-left: 380px">– Martin Luther King, Jr.</figcaption>
+            </figure>
+        </p>
+    </div>
+    <div class="col-md-6">
+        <img class="side-Image mt-0" src="~/Images/hands.png" alt="Volunteer" Style="height: 100%" />
+    </div>
+</div>
+
+        @*<%------- Links ---------%>*@
+
+<h2 class="text-center Links-Heading pb-3">
+    Manage Donations
+    <hr class="mt-2 mb-4" />
+</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="card col-sm-6 text-center">
+            <img src="~/Images/UpdatePickUp.jpg" class="card-img-top" alt="Pickup" />
+            <div class="card-body text-center">
+                <h5 class="card-title">Manage Donation</h5>
+                <p class="card-text">Click here to book Pickup for Your Donation. You can Donate Books , CLothes , Furniture , etc to Needed Person.</p>
+                <a class="btn btn-primary" asp-action="ManageDonation" asp-controller="Donation">Manage Donation</a>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+
+        @*<div class="col-sm-2"></div>
+        <div class="card col-sm-5">
+            <img src="images/UpdatePickUp.jpg" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+                <h5 class="card-title pt-4">Manage Pickup Details</h5>
+                <p class="card-text">Click here to Manage all Donation Requests. Here you can view,update & delete the Request details as per require.</p>
+                <asp:HyperLink ID="VolunteerManagePickup" runat="server" NavigateUrl="~/ManagePickup.aspx" CssClass="btn btn-primary">Manage ↦</asp:HyperLink>
+            </div>
+        </div>*@
+    </div>
+</div>
+
+
+@*<a class="btn btn-coral" asp-action="ManageDonation" asp-controller="Donation">Manage Donation</a>*@
+
+
+
+
+
+

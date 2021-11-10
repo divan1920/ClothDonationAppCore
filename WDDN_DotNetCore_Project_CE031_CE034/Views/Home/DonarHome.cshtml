@@ -1,0 +1,57 @@
+﻿@*@{
+        ViewData["Title"] = "DonarHome";
+    }
+
+    <h1>DonarHome</h1>
+
+    <a class="btn btn-coral" asp-action="Create" asp-controller="Donation">Donate</a>
+    <a class="btn btn-coral" asp-action="Index" asp-controller="Donation">My Donations</a>*@
+
+@{
+    ViewData["Title"] = "DonarHome";
+}
+<div style="background-color: #E8EEEF;">
+    @*<h1>DonarHome</h1>*@
+
+    <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container-fluid">
+            <h2 class="Hero-Heading text-center">Let's Spread Happiness</h2>
+            <h2 class="Hero-Heading-1 text-center pt-3">We Deliver your Donations to the Right Place</h2>
+            <button ID="BookPickUp" class="mt-3 px-4 py-2">Book a PickUp &#8614;</button>
+        </div>
+    </div>
+
+    <!-- <%------- Links ---------%> -->
+
+    <h2 class="text-center Links-Heading">
+        How We Work
+        <hr class="mt-2 mb-4" />
+    </h2>
+    <div class="row pl-5 pr-5 text-center Links-Cards">
+        <div class="card col-sm-5 m-3">
+            <img src="~/Images/PickUp.png" class="card-img-top" alt="Pickup">
+            <div class="card-body text-center">
+                <h5 class="card-title">Book PickUp</h5>
+                <p class="card-text">Click here to book Pickup for Your Donation. You can Donate Books , Clothes , Furniture , etc to Needed Person.</p>
+                @*<button class="btn btn-primary">Book &#8614;</button>*@
+                <a class="btn btn-primary" asp-action="Create" asp-controller="Donation">Donate &#8614;</a>
+            </div>
+        </div>
+
+
+        <div class="card col-sm-5 m-3 ml-5">
+            <img src="~/Images/UpdatePickUp.jpg" class="card-img-top" alt="Pickup">
+            <div class="card-body text-center">
+                <h5 class="card-title pt-4">Manage Pickup Details</h5>
+                <p class="card-text">Click here to Manage all of your donations. Here you can view,update & delete the donations details as per require.</p>
+                @*<button class="btn btn-primary">Manage ↦</button>*@
+                <a class="btn btn-primary" asp-action="Index" asp-controller="Donation">My Donations ↦</a>
+
+            </div>
+        </div>
+        &nbsp;
+    </div>
+    @*<a class="btn btn-coral" asp-action="Create" asp-controller="Donation">Donate</a>
+    <a class="btn btn-coral" asp-action="Index" asp-controller="Donation">My Donations</a>*@
+
+</div>
